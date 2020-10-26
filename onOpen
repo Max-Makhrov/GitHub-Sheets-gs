@@ -1,0 +1,17 @@
+function onOpen(e)
+{
+  addMenu_();
+}
+
+
+function addMenu_()
+{
+  var ui = SpreadsheetApp.getUi();
+  ui.createMenu('😸 GitHub')
+  .addItem('➕ Connect...', 'setGitHubConnection_')
+  .addSeparator() 
+  .addItem('✔️ Pull ← to current Sheet', 'writeGitHub_to_Sheet_')
+  .addItem('✏️ Push → to GitHub', 'writeSheet_to_GitHub_')
+  .addToUi();
+  return 0;
+}

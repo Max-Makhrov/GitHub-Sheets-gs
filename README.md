@@ -1,4 +1,4 @@
-# GitHub-Sheets-js
+# GitHub-Sheets-gs
 
 Connects Google Sheets with GitHub:
 

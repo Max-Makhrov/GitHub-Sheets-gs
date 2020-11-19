@@ -43,7 +43,7 @@ function writeGitHub_to_Sheet_(sheet) {
 //
 // → Git
 function test_togit() {
-  var sheet = SpreadsheetApp.getActive().getSheetByName('#test1#');
+  var sheet = SpreadsheetApp.getActive().getSheetByName('#test2#');
   writeSheet_to_GitHub_(sheet);
 }
 function writeSheet_to_GitHub_(sheet) {
@@ -85,13 +85,13 @@ function writeSheet_to_GitHub_(sheet) {
       // convert to regular string
       newRepoText =  sets.data.map(function(row) { return row.join(''); }).join('\n');
     }
-    updateRepo_(sets, newRepoText)
+    updateRepo_(sets, newRepoText);
     Browser.msgBox('Wtite data to GitHub:\\n ✔️ Done!' + '\\n\\nExecution time: ' + getTimeEllapse_(t));
   }
   catch(err) {
     Browser.msgBox('=( Got Error wile trying to push data. Message:\\n\\n' + err); 
     throw err;
-  }  
+  }    
 }
 
 

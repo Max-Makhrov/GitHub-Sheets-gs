@@ -213,11 +213,12 @@ function updateRepo_(sets, newRepoText) {
   // https://api.github.com/repos/{username}/{repository name}/contents/{filepath and name}
   var request = 'repos/' + sets.user + '/' + sets.repo + '/contents/' + sets.path; 
   var url = getGitHubApiUrl_(request);
+  url = url.replace(/([^:]\/)\/+/g, "$1"); // remove duplicate forward slashes from the URL
   // get response
   var response = UrlFetchApp.fetch(url, options);
   if (passResponseValidation_(response)) {
     var json = JSON.parse(response.getContentText()); 
-    return json
+    return json;
   }  
   throw 'Response was not success. ' + response.getResponseCode() + '. ' + request + '. Response: ' + response.getContentText();  
 }
